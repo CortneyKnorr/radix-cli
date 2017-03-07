@@ -4,7 +4,7 @@
   "description": "Radix companion cli",
   "main": "index.js",
   "bin": {
-    "radix-cli": "cli.js"
+    "radix-cli": "bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
