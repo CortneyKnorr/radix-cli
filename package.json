@@ -1,0 +1,22 @@
+{
+  "name": "radix-cli",
+  "version": "1.0.0-rc.0",
+  "description": "Radix companion cli",
+  "main": "index.js",
+  "bin": {
+    "radix-cli": "cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CortneyKnorr/radix-cli.git"
+  },
+  "author": "Cortney Knorr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CortneyKnorr/radix-cli/issues"
+  },
+  "homepage": "https://github.com/CortneyKnorr/radix-cli#readme"
+}
