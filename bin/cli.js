@@ -69,4 +69,7 @@ switch(process.argv[2]){
 		let ls = require('child_process').spawn("node", args);
 		ls.stdout.on('data', data => console.log("" + data));
 		ls.stderr.on('data', data => console.log("" + data));
+		ls.on('close', (code) => {
+			process.exit();
+		});
 }
