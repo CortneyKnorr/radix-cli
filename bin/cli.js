@@ -67,7 +67,11 @@ switch(process.argv[2]){
 	default:
 		let args = ["radix.js", ...process.argv.splice(2)];
 		let ls = require('child_process').spawn("node", args);
-		ls.stdout.on('data', data => console.log("" + data));
+		ls.stdout.on('data', data => {
+			let array = data.toString().split("\n");
+			array = array.splice(0,array.length - 1);
+			array.forEach(e => console.log(e));
+		});
 		ls.stderr.on('data', data => console.log("" + data));
 		ls.on('close', (code) => {
 			process.exit();
