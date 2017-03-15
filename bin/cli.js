@@ -35,6 +35,24 @@ function execute(command) {
 
 
 switch(process.argv[2]){
+	case "update":
+		console.log("Downloading files");
+		execute("git clone https://github.com/CortneyKnorr/radix.git .radix")
+			.then(data => execute("cp -r .radix/{app} ./"))
+			.then(data => {
+				console.log("Copying files");
+				return execute("cp .radix/{package.json,radix.js} ./");
+			})
+			.then(data => {
+				console.log("Cleanup");
+				return execute("rm -fr .radix");
+			})
+			.then(data => console.log("All done!"))
+			.catch(error => {
+				console.log(error);
+			})
+		;
+		break;
 	case "init":
 		console.log("Downloading files");
 		execute("git clone https://github.com/CortneyKnorr/radix.git .radix")
@@ -64,6 +82,30 @@ switch(process.argv[2]){
 			})
 		;
 		break;
+    case "dependencies":
+        console.log("Installing global dependencies");
+        execute("sudo npm install -g nodemon")
+            .then(data => {
+                console.log("30% finished");
+                return execute("sudo npm install -g browser-sync");
+            })
+            .then(data => {
+                console.log("60% finished");
+                return execute("sudo npm install -g n");
+            })
+            .then(data => {
+                console.log("90% finished");
+                return execute("sudo n stable");
+            })
+            .then(data => {
+                console.log("Finished");
+                process.exit();
+            })
+            .catch(data => {
+                console.log(data);
+                console.log("Something went wrong");
+            })
+        break;
 	default:
 		let args = ["radix.js", ...process.argv.splice(2)];
 		let ls = require('child_process').spawn("node", args);
