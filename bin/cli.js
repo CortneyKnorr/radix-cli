@@ -38,7 +38,7 @@ switch(process.argv[2]){
 	case "update":
 		console.log("Downloading files");
 		execute("git clone https://github.com/CortneyKnorr/radix.git .radix")
-			.then(data => execute("cp -r .radix/{app} ./"))
+			.then(data => execute("cp -r .radix/app ./"))
 			.then(data => {
 				console.log("Copying files");
 				return execute("cp .radix/{package.json,radix.js} ./");
