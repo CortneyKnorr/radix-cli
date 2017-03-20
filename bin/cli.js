@@ -50,6 +50,7 @@ switch(process.argv[2]){
 			.then(data => console.log("All done!"))
 			.catch(error => {
 				console.log(error);
+                process.exit();
 			})
 		;
 		break;
@@ -79,6 +80,7 @@ switch(process.argv[2]){
 			.then(data => console.log("All done!"))
 			.catch(error => {
 				console.log(error);
+                process.exit();
 			})
 		;
 		break;
