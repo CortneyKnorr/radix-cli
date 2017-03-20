@@ -47,7 +47,10 @@ switch(process.argv[2]){
 				console.log("Cleanup");
 				return execute("rm -fr .radix");
 			})
-			.then(data => console.log("All done!"))
+			.then(data => {
+                console.log("All done!");
+                process.exit();
+            })
 			.catch(error => {
 				console.log(error);
                 process.exit();
@@ -77,7 +80,10 @@ switch(process.argv[2]){
 				console.log("Cleanup");
 				return execute("rm -fr .radix");
 			})
-			.then(data => console.log("All done!"))
+			.then(data => {
+                console.log("All done!")
+                process.exit();
+            })
 			.catch(error => {
 				console.log(error);
                 process.exit();
