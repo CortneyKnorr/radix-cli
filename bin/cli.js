@@ -43,7 +43,7 @@ switch(process.argv[2]){
 				return execute("cp .radix/{.gitignore,*.*} ./");
 			})
 			.then(data => {
-				return execute("rm .radix/{.gitignore,*.*} ./");
+				return execute("rm .radix/{.gitignore,*.*}");
 			})
 			.then(data => execute("cp -r .radix/{app,sources,config} ./"))
 			.then(data => {
