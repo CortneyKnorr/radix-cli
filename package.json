@@ -1,6 +1,6 @@
 {
   "name": "radix-cli",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Radix companion cli",
   "main": "index.js",
   "bin": {
