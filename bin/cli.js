@@ -45,7 +45,7 @@ switch(process.argv[2]){
 			.then(data => {
 				return execute("rm .radix/{.gitignore,*.*}");
 			})
-			.then(data => execute("cp -r .radix/{app,sources,config} ./"))
+			.then(data => execute("cp -r .radix/* ./"))
 			.then(data => {
 				console.log("Radix files in place");
 				return ask("Do you want to install dependencies?(y,n)");
