@@ -35,36 +35,17 @@ function execute(command) {
 
 
 switch(process.argv[2]){
-	case "update":
-		console.log("Downloading files");
-		execute("git clone https://github.com/CortneyKnorr/radix.git .radix")
-			.then(data => execute("cp -r .radix/app ./"))
-			.then(data => {
-				console.log("Copying files");
-				return execute("cp .radix/{package.json,radix.js} ./");
-			})
-			.then(data => {
-				console.log("Cleanup");
-				return execute("rm -fr .radix");
-			})
-			.then(data => {
-                console.log("All done!");
-                process.exit();
-            })
-			.catch(error => {
-				console.log(error);
-                process.exit();
-			})
-		;
-		break;
 	case "init":
 		console.log("Downloading files");
 		execute("git clone https://github.com/CortneyKnorr/radix.git .radix")
-			.then(data => execute("cp -r .radix/{app,sources,config} ./"))
 			.then(data => {
 				console.log("Copying files");
 				return execute("cp .radix/{.gitignore,*.*} ./");
 			})
+			.then(data => {
+				return execute("rm .radix/{.gitignore,*.*} ./");
+			})
+			.then(data => execute("cp -r .radix/{app,sources,config} ./"))
 			.then(data => {
 				console.log("Radix files in place");
 				return ask("Do you want to install dependencies?(y,n)");
