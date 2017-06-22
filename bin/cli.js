@@ -37,7 +37,12 @@ function execute(command) {
 switch(process.argv[2]){
 	case "init":
 		console.log("Downloading files");
-		execute("git clone https://github.com/CortneyKnorr/radix.git ./")
+		let command = "git clone https://github.com/CortneyKnorr/radix.git ./";
+		let arguments = process.argv.splice(2);
+		if(arguments[0]){
+		    command += arguments[0];
+        }
+		execute(command)
 			.then(data => {
 				return execute("rm -fr ./.git");
 			})
